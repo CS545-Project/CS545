@@ -12,7 +12,7 @@ export default function HelpScreen({toggleModal}) {
                 <Text style={styles.header}>Help</Text>
                 <Text style={styles.text}>{'\u2022'} Click on a Country to get started</Text>
                 <Text style={styles.text}>{'\u2022'} Learn the facts and take the quiz</Text>
-                <Text style={styles.text}>{'\u2022'} Master your knowlege and share with friends</Text>
+                <Text style={styles.text}>{'\u2022'} Master your knowledge and share with friends</Text>
                 <TouchableOpacity style={styles.button} onPress={toggleModal}>
                     <Text style={styles.buttonText}>Got it!</Text>
                 </TouchableOpacity>

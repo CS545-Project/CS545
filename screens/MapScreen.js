@@ -546,7 +546,7 @@ const styles = StyleSheet.create({
         height: '100%',
     },
     image: {
-        width: 57,
+        width: 65,
         height: 40,
         borderRadius: 5,
         borderColor: 'black',
