@@ -43,7 +43,12 @@ export default function QuizScreen({ navigation, route }) {
             }
         }
         else {
-            navigation.navigate('ResultsScreen', { correctAnswersCount: correctAnswersCount, quiz: quiz });
+            if (correctAnswersCount < 5) {
+                navigation.navigate('ResultsScreen', { correctAnswersCount: correctAnswersCount, quiz: quiz });
+            }
+            else {
+                navigation.navigate('ConfettiScreen', { quiz: quiz });
+            }
         }
     };
 
@@ -53,7 +58,7 @@ export default function QuizScreen({ navigation, route }) {
         setIsCorrect(false);
         setButtonText('Next Queston');
         setCorrectAnswersCount(0);
-    },[route.params]);
+    }, [route.params]);
 
     return (
         <>

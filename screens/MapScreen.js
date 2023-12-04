@@ -5,27 +5,29 @@ import { StyleSheet } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import Modal from "react-native-modal";
 import FactsScreen from "../screens/FactsScreen";
+import Icon from 'react-native-vector-icons/Feather';
+import HelpScreen from './HelpScreen';
 
 import americaFlag from '../flags/america.png';
 import spainFlag from '../flags/spain.png';
 import brazilFlag from '../flags/brazil.png';
 import russiaFlag from '../flags/russia.png';
+import japanFlag from '../flags/japan.png';
+import southAfricaFlag from '../flags/southAfrica.jpg';
 
 export default function MapScreen({ navigation }) {
 
     const [currIndex, setCurrIndex] = useState(0);
-    const [isModalVisible, setModalVisible] = useState(false);
-    const toggleModal = (index) => {
+    const [isModalVisible1, setModalVisible1] = useState(false);
+    const [isModalVisible2, setModalVisible2] = useState(false);
+    const toggleModal1 = (index) => {
         setCurrIndex(index);
-        setModalVisible(!isModalVisible);
+        setModalVisible1(!isModalVisible1);
     };
 
     const markers = [
         {
-            latitude: 40,
-            longitude: -100,
-            flag: americaFlag,
-            name: "America",
+            latitude: 40, longitude: -100, flag: americaFlag, name: "America",
             facts: [
                 'The official name of the USA is The United States of America',
                 'The US is made up of 50 states and a national government in Washington, DC',
@@ -94,10 +96,7 @@ export default function MapScreen({ navigation }) {
             ]
         },
         {
-            latitude: 40.4637,
-            longitude: -3.7492,
-            flag: spainFlag,
-            name: "Spain",
+            latitude: 40.4637, longitude: -3.7492, flag: spainFlag, name: "Spain",
             facts: [
                 'Spain is the only European country to have a physical border with an African country (Morocco)',
                 'The national anthem of Spain, Marcha Real, has no official lyrics',
@@ -176,10 +175,7 @@ export default function MapScreen({ navigation }) {
             ]
         },
         {
-            latitude: -14.2350,
-            longitude: -51.9253,
-            flag: brazilFlag,
-            name: "Brazil",
+            latitude: -14.2350, longitude: -51.9253, flag: brazilFlag, name: "Brazil",
             facts: [
                 'Brazil is the largest country in both South America and Latin America',
                 'The Amazon River, flowing in Brazil, is by volume the worlds largest river',
@@ -247,10 +243,7 @@ export default function MapScreen({ navigation }) {
             ]
         },
         {
-            latitude: 61.5240,
-            longitude: 105.3188,
-            flag: russiaFlag,
-            name: "Russia",
+            latitude: 61.5240, longitude: 105.3188, flag: russiaFlag, name: "Russia",
             facts: [
                 'Russia is the largest country in the world by land area',
                 'The Trans-Siberian Railway spans almost all the way across the continent, making it the longest in the world',
@@ -318,13 +311,156 @@ export default function MapScreen({ navigation }) {
                 }
             ]
         },
+        {
+            latitude: 36.2048,
+            longitude: 138.2529,
+            flag: japanFlag,
+            name: "Japan",
+            facts: [
+                'Japan is an island nation in East Asia, located in the Pacific Ocean',
+                'The capital city of Japan is Tokyo, which is also its largest city',
+                'Japan is known for its unique blend of traditional and modern culture',
+                'Mount Fuji, Japan’s tallest mountain, is an iconic symbol of the country',
+                'Japanese cuisine, known for sushi and sashimi, is popular worldwide',
+                'Japan is a world leader in technology and robotics',
+                'The country experiences a significant number of earthquakes and tsunamis due to its location on the Pacific "Ring of Fire"',
+                'Cherry blossoms, or sakura, are deeply symbolic in Japanese culture and celebrated during spring',
+                'Japan has a constitutional monarchy, with a reigning Emperor',
+                'Sumo wrestling is considered Japan’s national sport',
+                'The Shinkansen, or Bullet Train, is a high-speed rail network connecting major cities',
+                'Anime and manga are significant parts of Japanese pop culture'
+            ],
+            quiz: [
+                {
+                    "question": "What is the capital city of Japan?",
+                    "options": [
+                        "Kyoto",
+                        "Osaka",
+                        "Tokyo",
+                        "Hiroshima"
+                    ],
+                    "correct_option": "Tokyo"
+                },
+                {
+                    "question": "What is Japan's tallest mountain?",
+                    "options": [
+                        "Mount Koya",
+                        "Mount Fuji",
+                        "Mount Takao",
+                        "Mount Asahi"
+                    ],
+                    "correct_option": "Mount Fuji"
+                },
+                {
+                    "question": "What is Japan known for in the field of technology?",
+                    "options": [
+                        "Automobiles",
+                        "Robotics",
+                        "Biotechnology",
+                        "Renewable Energy"
+                    ],
+                    "correct_option": "Robotics"
+                },
+                {
+                    "question": "What sport is considered the national sport of Japan?",
+                    "options": [
+                        "Baseball",
+                        "Soccer",
+                        "Sumo Wrestling",
+                        "Judo"
+                    ],
+                    "correct_option": "Sumo Wrestling"
+                },
+                {
+                    "question": "What is the high-speed rail network in Japan known as?",
+                    "options": [
+                        "Metro Express",
+                        "Shinkansen",
+                        "Rapid Transit",
+                        "Sky Train"
+                    ],
+                    "correct_option": "Shinkansen"
+                }
+            ]
+        },
+        {
+            latitude: -30.5595,
+            longitude: 22.9375,
+            flag: southAfricaFlag,
+            name: "South Africa",
+            facts: [
+                'South Africa is known as the "Rainbow Nation" because of its multicultural diversity',
+                'It has three capital cities: Pretoria (executive), Bloemfontein (judicial), and Cape Town (legislative)',
+                'South Africa has 11 official languages, the most in the world',
+                'The country is famous for its wildlife and national parks, like the Kruger National Park',
+                'South Africa is the largest producer of platinum in the world',
+                'Table Mountain in Cape Town is one of the oldest mountains in the world',
+                'The world’s largest diamond, the Cullinan, was found in South Africa in 1905',
+                'South Africa was the first African nation to host the FIFA World Cup in 2010',
+                'Nelson Mandela, a key figure in ending apartheid, was South African',
+                'The country is one of the world’s biggest wine producers',
+                'Bungee jumping from Bloukrans Bridge, the world’s highest commercial bungee jump'
+            ],
+            quiz: [
+                {
+                    "question": "What is South Africa known as due to its multicultural diversity?",
+                    "options": [
+                        "The Diamond Nation",
+                        "The Rainbow Nation",
+                        "The Gold Nation",
+                        "The Safari Nation"
+                    ],
+                    "correct_option": "The Rainbow Nation"
+                },
+                {
+                    "question": "How many official languages does South Africa have?",
+                    "options": [
+                        "5",
+                        "11",
+                        "16",
+                        "8"
+                    ],
+                    "correct_option": "11"
+                },
+                {
+                    "question": "Which South African city is known for Table Mountain?",
+                    "options": [
+                        "Johannesburg",
+                        "Durban",
+                        "Cape Town",
+                        "Pretoria"
+                    ],
+                    "correct_option": "Cape Town"
+                },
+                {
+                    "question": "What major sporting event did South Africa host in 2010?",
+                    "options": [
+                        "Olympic Games",
+                        "Commonwealth Games",
+                        "FIFA World Cup",
+                        "Rugby World Cup"
+                    ],
+                    "correct_option": "FIFA World Cup"
+                },
+                {
+                    "question": "Who was the key figure in ending apartheid in South Africa?",
+                    "options": [
+                        "Desmond Tutu",
+                        "F.W. de Klerk",
+                        "Nelson Mandela",
+                        "Thabo Mbeki"
+                    ],
+                    "correct_option": "Nelson Mandela"
+                }
+            ]
+        }
     ]
 
     return (
         <>
             <Modal
-                isVisible={isModalVisible}
-                onSwipeComplete={() => setModalVisible(!isModalVisible)}
+                isVisible={isModalVisible1}
+                onSwipeComplete={() => setModalVisible1(!isModalVisible1)}
                 swipeDirection="down"
                 backdropOpacity={0.5}
                 style={{
@@ -350,12 +486,33 @@ export default function MapScreen({ navigation }) {
                         country={markers[currIndex].name}
                         facts={markers[currIndex].facts}
                         quiz={markers[currIndex].quiz}
-                        toggleModal={toggleModal}
+                        toggleModal={toggleModal1}
                         currIndex={currIndex}
                     />
                 </View>
             </Modal>
+            <Modal
+                isVisible={isModalVisible2}
+                onSwipeComplete={() => setModalVisible2(!isModalVisible2)}
+                swipeDirection="down"
+                backdropOpacity={0.5}
+                style={{
+                    justifyContent: 'center',
+                }}
+            >
+                <View style={{
+                    borderTopLeftRadius: 20,
+                    borderTopRightRadius: 20,
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }}>
+                    <HelpScreen toggleModal={() => setModalVisible2(!isModalVisible2)}/>
+                </View>
+            </Modal>
             <View style={styles.container}>
+                <TouchableOpacity style={styles.icon} onPress={() => setModalVisible2(!isModalVisible2)}>
+                    <Icon size={30} name='help-circle' />
+                </TouchableOpacity>
                 <MapView
                     style={styles.map}
                     initialRegion={{
@@ -369,7 +526,7 @@ export default function MapScreen({ navigation }) {
                             key={index}
                             coordinate={marker}
                         >
-                            <TouchableOpacity onPress={() => toggleModal(index)}>
+                            <TouchableOpacity onPress={() => toggleModal1(index)}>
                                 <Image style={styles.image} source={marker.flag} />
                             </TouchableOpacity>
                         </Marker>
@@ -395,4 +552,10 @@ const styles = StyleSheet.create({
         borderColor: 'black',
         borderWidth: 2,
     },
+    icon: {
+        position: 'absolute',
+        left: 330,
+        top: 60,
+        zIndex: 1
+    }
 });
